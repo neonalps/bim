@@ -1,10 +1,10 @@
 import { RequestSchema, RouteDefinition, RouteProvider } from "@src/router/types";
 import { FindStationsByNameHandler } from "@src/api/v1/stations/find-by-name/handler";
 import { requireNonNull } from "@src/util/common";
-import { FindStationsByNameRequestDto } from "@src/models/api/find-stops-by-name-request";
-import { FindStationsByNameResponseDto } from "@src/models/api/find-stops-by-name-response";
+import { FindStationsByNameRequestDto } from "@src/models/api/find-stations-by-name-request";
+import { FindStationsByNameResponseDto } from "@src/models/api/find-stations-by-name-response";
 
-export class FindStopsByNameRouteProvider implements RouteProvider<FindStationsByNameRequestDto, FindStationsByNameResponseDto> {
+export class FindStationsByNameRouteProvider implements RouteProvider<FindStationsByNameRequestDto, FindStationsByNameResponseDto> {
 
     private readonly handler: FindStationsByNameHandler;
 

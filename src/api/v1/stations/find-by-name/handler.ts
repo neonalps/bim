@@ -1,5 +1,5 @@
-import { FindStationsByNameRequestDto as FindStationsByNameRequestDto } from "@src/models/api/find-stops-by-name-request";
-import { FindStationsByNameResponseDto as FindStationsByNameResponseDto } from "@src/models/api/find-stops-by-name-response";
+import { FindStationsByNameRequestDto as FindStationsByNameRequestDto } from "@src/models/api/find-stations-by-name-request";
+import { FindStationsByNameResponseDto as FindStationsByNameResponseDto } from "@src/models/api/find-stations-by-name-response";
 import { StationDto } from "@src/models/api/station";
 import { Station } from "@src/models/classes/station";
 import { BusBahnBimService } from "@src/modules/busbahnbim/service";
