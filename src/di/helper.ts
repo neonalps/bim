@@ -5,6 +5,7 @@ import { TimeSource } from "@src/util/time";
 import { BusBahnBimService } from "@src/modules/busbahnbim/service";
 import { BusBahnBimClient } from "@src/modules/busbahnbim/client";
 import { getBusBahnBimClientConfig } from "@src/config";
+import { ApiHelper } from "@src/api/helper";
 
 export class DependencyHelper {
 
@@ -16,6 +17,7 @@ export class DependencyHelper {
 
     private static getDependencies(): Map<Dependencies, any> {
 
+        const apiHelper = new ApiHelper();
         const httpClient = new HttpClient();
         const timeSource = new TimeSource();
 
@@ -24,6 +26,7 @@ export class DependencyHelper {
 
         const dependencies: Map<Dependencies, any> = new Map();
         
+        dependencies.set(Dependencies.ApiHelper, apiHelper);
         dependencies.set(Dependencies.BusBahnBimService, busBahnBimService);
         dependencies.set(Dependencies.HttpClient, httpClient);
         dependencies.set(Dependencies.TimeSource, timeSource);
