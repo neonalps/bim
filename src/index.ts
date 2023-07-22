@@ -1,9 +1,10 @@
 import fastify from "fastify";
 import logger from "@src/log/logger";
-import { getApplicationConfig } from "@src/config";
+import { getApplicationConfig, getCorsConfig } from "@src/config";
 import { RouteManager } from "@src/router/manager";
 import { getRouteProviders } from "@src/api/route-providers";
 import { DependencyHelper } from "@src/di/helper";
+import { CorsManager } from "@src/cors/manager";
 
 async function start() {
     const applicationConfig = getApplicationConfig();
@@ -11,6 +12,7 @@ async function start() {
 
     DependencyHelper.initDependencies();
     RouteManager.registerRoutes(server, getRouteProviders());
+    await CorsManager.registerCorsConfig(server, getCorsConfig());
 
     server.listen({ host: applicationConfig.host, port: applicationConfig.port }, async (err, address) => {
         if (err) {
@@ -18,7 +20,7 @@ async function start() {
             process.exit(1);
         }
 
-        logger.info(`🚊 Server listening at ${address}, environment: ${applicationConfig.environment}`);
+        logger.info(`🚈 Server listening at ${address}, environment: ${applicationConfig.environment}`);
     });
 }
 
